@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "software_timer.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -136,20 +136,15 @@ int main(void)
 		  //TODO EX1
 		  switch(status){
 		  case 1:
-			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-
-			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
+			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 0);
+			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 1);
 
 			  display7SEG(status);
 			  status = 2;
 			  break;
 		  case 2:
-			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
-
-			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
-
+			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 1);
+			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 0);
 
 			  display7SEG(status);
 			  status = 1;
@@ -160,17 +155,17 @@ int main(void)
 		  setTimer1(50);
 	  }
 
-//	  if(flag2 == 1){
-//	  		  //TODO EX2
-//	  		  flag2 = 0;
-//	  		  counter2 = 25;
-//	  	  }
-//
-//	  if(flag3 == 1){
-//	  		  //TODO EX3
-//	  		  flag3 = 0;
-//	  		  counter3 = 100;
-//	  	  }
+	  if(flag2 == 1){
+	  		  //TODO EX2
+	  		  flag2 = 0;
+	  		  counter2 = 25;
+	  	  }
+
+	  if(flag3 == 1){
+	  		  //TODO EX3
+	  		  flag3 = 0;
+	  		  counter3 = 100;
+	  	  }
   }
   /* USER CODE END 3 */
 }

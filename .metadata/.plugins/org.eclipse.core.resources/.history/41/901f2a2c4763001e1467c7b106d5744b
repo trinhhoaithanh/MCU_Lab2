@@ -136,20 +136,17 @@ int main(void)
 		  //TODO EX1
 		  switch(status){
 		  case 1:
-			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-
-			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
+			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 0);
+			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 1);
+			  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 
 			  display7SEG(status);
 			  status = 2;
 			  break;
 		  case 2:
-			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
-
-			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
-
+			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 1);
+			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 0);
+			  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 
 			  display7SEG(status);
 			  status = 1;
