@@ -137,7 +137,31 @@ int main(void)
 
 	  if(timer1_flag == 1){
 //		  //TODO EX1
-		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+//		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+//		  switch(status){
+//		  case 1:
+//			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+//			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+//
+//
+//
+//			  display7SEG(status);
+//			  status = 2;
+//			  break;
+//		  case 2:
+//			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+//			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+//
+//
+//
+//
+//			  display7SEG(status);
+//			  status = 1;
+//			  break;
+//		  default:
+//			  break;
+//		  }
+//		  setTimer1(500);
 
 		  switch(status){
 			  case 1:
@@ -320,7 +344,6 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim)
 {
 
-	timerRun1();
 	timerRun2();
 }
 /* USER CODE END 4 */
