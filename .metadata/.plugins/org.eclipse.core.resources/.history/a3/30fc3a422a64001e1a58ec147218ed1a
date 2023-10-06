@@ -131,7 +131,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  setTimer1(50);
 	  int status = 1;
-	  timer1_flag = 1;
+//	  timer1_flag = 1;
 	  if(timer1_flag == 1){
 		  //TODO EX1
 		  switch(status){

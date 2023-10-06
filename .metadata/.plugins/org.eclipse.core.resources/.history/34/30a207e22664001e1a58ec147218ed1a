@@ -130,35 +130,33 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  setTimer1(50);
-	  int status = 1;
-	  timer1_flag = 1;
-	  if(timer1_flag == 1){
-		  //TODO EX1
-		  switch(status){
-		  case 1:
-			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+	    int status = 1;
+	    timer1_flag = 1;
+	    while (1)
+	    {
+	  	  if(timer1_flag == 1){
+	  		  switch(status){
+	  		  case 1:
+	  		  			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 0);
+	  		  			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 1);
 
-			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
+	  		  			  display7SEG(status);
+	  		  			  status = 2;
+	  		  			  break;
+	  		    case 2:
+	  		  			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 1);
+	  		  			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 0);
 
-			  display7SEG(1);
-			  status = 2;
-			  break;
-		  case 2:
-			  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-			  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+	  		  			  display7SEG(status);
 
-			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
+	  		  			  status = 1;
+	  			          break;
 
-
-			  display7SEG(2);
-			  status = 1;
-			  break;
-		  default:
-			  break;
-		  }
-		  setTimer1(50);
-	  }
+	  		  default:
+	  		  	  break;
+	  		  }
+	  		  setTimer1(50);
+	  	  }
 
 //	  if(flag2 == 1){
 //	  		  //TODO EX2

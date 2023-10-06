@@ -305,7 +305,7 @@ int main(void)
  80002b4:	2b02      	cmp	r3, #2
  80002b6:	d015      	beq.n	80002e4 <main+0x6c>
 
-			  display7SEG(status);
+			  display7SEG(2);
 			  status = 1;
 			  break;
 		  default:
@@ -326,8 +326,8 @@ int main(void)
  80002d0:	2120      	movs	r1, #32
  80002d2:	4813      	ldr	r0, [pc, #76]	; (8000320 <main+0xa8>)
  80002d4:	f000 fcdc 	bl	8000c90 <HAL_GPIO_WritePin>
-			  display7SEG(status);
- 80002d8:	6878      	ldr	r0, [r7, #4]
+			  display7SEG(1);
+ 80002d8:	2001      	movs	r0, #1
  80002da:	f7ff ff37 	bl	800014c <display7SEG>
 			  status = 2;
  80002de:	2302      	movs	r3, #2
@@ -349,8 +349,8 @@ int main(void)
  80002fa:	2120      	movs	r1, #32
  80002fc:	4808      	ldr	r0, [pc, #32]	; (8000320 <main+0xa8>)
  80002fe:	f000 fcc7 	bl	8000c90 <HAL_GPIO_WritePin>
-			  display7SEG(status);
- 8000302:	6878      	ldr	r0, [r7, #4]
+			  display7SEG(2);
+ 8000302:	2002      	movs	r0, #2
  8000304:	f7ff ff22 	bl	800014c <display7SEG>
 			  status = 1;
  8000308:	2301      	movs	r3, #1

@@ -141,7 +141,7 @@ int main(void)
 
 			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
 
-			  display7SEG(1);
+			  display7SEG(status);
 			  status = 2;
 			  break;
 		  case 2:
@@ -151,7 +151,7 @@ int main(void)
 			  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 
 
-			  display7SEG(2);
+			  display7SEG(status);
 			  status = 1;
 			  break;
 		  default:
