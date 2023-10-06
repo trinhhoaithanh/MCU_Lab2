@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000859d  00000000  00000000  00020035  2**0
+ 12 .debug_info   00008593  00000000  00000000  00020035  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000015d3  00000000  00000000  000285d2  2**0
+ 13 .debug_abbrev 000015d3  00000000  00000000  000285c8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000960  00000000  00000000  00029ba8  2**3
+ 14 .debug_aranges 00000960  00000000  00000000  00029ba0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008a8  00000000  00000000  0002a508  2**3
+ 15 .debug_ranges 000008a8  00000000  00000000  0002a500  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001628e  00000000  00000000  0002adb0  2**0
+ 16 .debug_macro  0001628e  00000000  00000000  0002ada8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009422  00000000  00000000  0004103e  2**0
+ 17 .debug_line   0000941e  00000000  00000000  00041036  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081eb4  00000000  00000000  0004a460  2**0
+ 18 .debug_str    00081eb4  00000000  00000000  0004a454  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc314  2**0
+ 19 .comment      00000053  00000000  00000000  000cc308  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002648  00000000  00000000  000cc368  2**2
+ 20 .debug_frame  00002648  00000000  00000000  000cc35c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -276,26 +276,30 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
  800028e:	4822      	ldr	r0, [pc, #136]	; (8000318 <main+0xa0>)
  8000290:	f001 f942 	bl	8001518 <HAL_TIM_Base_Start_IT>
-  while (1)
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  setTimer1(50);
+ 8000294:	2032      	movs	r0, #50	; 0x32
+ 8000296:	f000 f92f 	bl	80004f8 <setTimer1>
+  int status = 1;
+ 800029a:	2301      	movs	r3, #1
+ 800029c:	607b      	str	r3, [r7, #4]
+  timer1_flag = 1;
+ 800029e:	4b1f      	ldr	r3, [pc, #124]	; (800031c <main+0xa4>)
+ 80002a0:	2201      	movs	r2, #1
+ 80002a2:	601a      	str	r2, [r3, #0]
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  setTimer1(50);
- 8000294:	2032      	movs	r0, #50	; 0x32
- 8000296:	f000 f92f 	bl	80004f8 <setTimer1>
-	  int status = 1;
- 800029a:	2301      	movs	r3, #1
- 800029c:	607b      	str	r3, [r7, #4]
-	  timer1_flag = 1;
- 800029e:	4b1f      	ldr	r3, [pc, #124]	; (800031c <main+0xa4>)
- 80002a0:	2201      	movs	r2, #1
- 80002a2:	601a      	str	r2, [r3, #0]
+
 	  if(timer1_flag == 1){
  80002a4:	4b1d      	ldr	r3, [pc, #116]	; (800031c <main+0xa4>)
  80002a6:	681b      	ldr	r3, [r3, #0]
  80002a8:	2b01      	cmp	r3, #1
- 80002aa:	d1f3      	bne.n	8000294 <main+0x1c>
+ 80002aa:	d1fb      	bne.n	80002a4 <main+0x2c>
 		  //TODO EX1
 		  switch(status){
  80002ac:	687b      	ldr	r3, [r7, #4]
@@ -305,7 +309,7 @@ int main(void)
  80002b4:	2b02      	cmp	r3, #2
  80002b6:	d015      	beq.n	80002e4 <main+0x6c>
 
-			  display7SEG(2);
+			  display7SEG(status);
 			  status = 1;
 			  break;
 		  default:
@@ -326,8 +330,8 @@ int main(void)
  80002d0:	2120      	movs	r1, #32
  80002d2:	4813      	ldr	r0, [pc, #76]	; (8000320 <main+0xa8>)
  80002d4:	f000 fcdc 	bl	8000c90 <HAL_GPIO_WritePin>
-			  display7SEG(1);
- 80002d8:	2001      	movs	r0, #1
+			  display7SEG(status);
+ 80002d8:	6878      	ldr	r0, [r7, #4]
  80002da:	f7ff ff37 	bl	800014c <display7SEG>
 			  status = 2;
  80002de:	2302      	movs	r3, #2
@@ -349,8 +353,8 @@ int main(void)
  80002fa:	2120      	movs	r1, #32
  80002fc:	4808      	ldr	r0, [pc, #32]	; (8000320 <main+0xa8>)
  80002fe:	f000 fcc7 	bl	8000c90 <HAL_GPIO_WritePin>
-			  display7SEG(2);
- 8000302:	2002      	movs	r0, #2
+			  display7SEG(status);
+ 8000302:	6878      	ldr	r0, [r7, #4]
  8000304:	f7ff ff22 	bl	800014c <display7SEG>
 			  status = 1;
  8000308:	2301      	movs	r3, #1
@@ -361,8 +365,8 @@ int main(void)
 		  setTimer1(50);
  800030e:	2032      	movs	r0, #50	; 0x32
  8000310:	f000 f8f2 	bl	80004f8 <setTimer1>
-  {
- 8000314:	e7be      	b.n	8000294 <main+0x1c>
+	  if(timer1_flag == 1){
+ 8000314:	e7c6      	b.n	80002a4 <main+0x2c>
  8000316:	bf00      	nop
  8000318:	20000030 	.word	0x20000030
  800031c:	2000002c 	.word	0x2000002c
