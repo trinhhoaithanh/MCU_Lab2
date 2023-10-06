@@ -456,34 +456,33 @@ int main(void)
  80003dc:	2201      	movs	r2, #1
  80003de:	601a      	str	r2, [r3, #0]
 
-  setTimer3(50);
- 80003e0:	2032      	movs	r0, #50	; 0x32
- 80003e2:	f000 f9db 	bl	800079c <setTimer3>
+  setTimer3(500);
+ 80003e0:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
+ 80003e4:	f000 f9da 	bl	800079c <setTimer3>
   timer3_flag = 1;
- 80003e6:	4b5e      	ldr	r3, [pc, #376]	; (8000560 <main+0x1bc>)
- 80003e8:	2201      	movs	r2, #1
- 80003ea:	601a      	str	r2, [r3, #0]
+ 80003e8:	4b5d      	ldr	r3, [pc, #372]	; (8000560 <main+0x1bc>)
+ 80003ea:	2201      	movs	r2, #1
+ 80003ec:	601a      	str	r2, [r3, #0]
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
 	  if(timer1_flag == 1){
- 80003ec:	4b5a      	ldr	r3, [pc, #360]	; (8000558 <main+0x1b4>)
- 80003ee:	681b      	ldr	r3, [r3, #0]
- 80003f0:	2b01      	cmp	r3, #1
- 80003f2:	f040 8088 	bne.w	8000506 <main+0x162>
+ 80003ee:	4b5a      	ldr	r3, [pc, #360]	; (8000558 <main+0x1b4>)
+ 80003f0:	681b      	ldr	r3, [r3, #0]
+ 80003f2:	2b01      	cmp	r3, #1
+ 80003f4:	f040 8087 	bne.w	8000506 <main+0x162>
 //		  //TODO EX1
 		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
- 80003f6:	2120      	movs	r1, #32
- 80003f8:	485a      	ldr	r0, [pc, #360]	; (8000564 <main+0x1c0>)
- 80003fa:	f000 fde7 	bl	8000fcc <HAL_GPIO_TogglePin>
- 80003fe:	687b      	ldr	r3, [r7, #4]
- 8000400:	2b03      	cmp	r3, #3
- 8000402:	d87b      	bhi.n	80004fc <main+0x158>
- 8000404:	a201      	add	r2, pc, #4	; (adr r2, 800040c <main+0x68>)
- 8000406:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 800040a:	bf00      	nop
+ 80003f8:	2120      	movs	r1, #32
+ 80003fa:	485a      	ldr	r0, [pc, #360]	; (8000564 <main+0x1c0>)
+ 80003fc:	f000 fde6 	bl	8000fcc <HAL_GPIO_TogglePin>
+ 8000400:	687b      	ldr	r3, [r7, #4]
+ 8000402:	2b03      	cmp	r3, #3
+ 8000404:	d87a      	bhi.n	80004fc <main+0x158>
+ 8000406:	a201      	add	r2, pc, #4	; (adr r2, 800040c <main+0x68>)
+ 8000408:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
  800040c:	080004c5 	.word	0x080004c5
  8000410:	0800041d 	.word	0x0800041d
  8000414:	08000455 	.word	0x08000455
@@ -636,7 +635,7 @@ int main(void)
  800051e:	4b10      	ldr	r3, [pc, #64]	; (8000560 <main+0x1bc>)
  8000520:	681b      	ldr	r3, [r3, #0]
  8000522:	2b01      	cmp	r3, #1
- 8000524:	f47f af62 	bne.w	80003ec <main+0x48>
+ 8000524:	f47f af63 	bne.w	80003ee <main+0x4a>
 	  		  //TODO EX3
 		  update7SEG(index_led);
  8000528:	4b0f      	ldr	r3, [pc, #60]	; (8000568 <main+0x1c4>)
@@ -663,7 +662,7 @@ int main(void)
  800054a:	2032      	movs	r0, #50	; 0x32
  800054c:	f000 f926 	bl	800079c <setTimer3>
 	  if(timer1_flag == 1){
- 8000550:	e74c      	b.n	80003ec <main+0x48>
+ 8000550:	e74d      	b.n	80003ee <main+0x4a>
  8000552:	bf00      	nop
  8000554:	20000054 	.word	0x20000054
  8000558:	20000040 	.word	0x20000040

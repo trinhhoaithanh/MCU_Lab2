@@ -176,7 +176,7 @@ int main(void)
   setTimer2(1000);
   timer2_flag = 1;
 
-  setTimer3(500);
+  setTimer3(50);
   timer3_flag = 1;
 
   while (1)
