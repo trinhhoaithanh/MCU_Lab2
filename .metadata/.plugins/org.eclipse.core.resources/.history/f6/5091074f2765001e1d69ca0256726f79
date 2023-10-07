@@ -139,6 +139,7 @@ void updateClockBuffer (){
 	led_buffer[1]=hour%10;
 	led_buffer[2]=minute/10;
 	led_buffer[3]=minute%10;
+
 }
 
 /* USER CODE END 0 */
@@ -251,7 +252,7 @@ int main(void)
 	  		  //TODO EX2
 		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 		  setTimer2(100);
-	  }
+	  	  }
 
 	  if(timer3_flag == 1){
 		  //TODO EX3
@@ -274,6 +275,8 @@ int main(void)
 	  }
 
 	  if(timer5_flag == 1){
+		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 		  second++;
 		  if(second>=60){
 			  second = 0;
