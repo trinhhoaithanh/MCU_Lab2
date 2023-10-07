@@ -179,9 +179,6 @@ int main(void)
   setTimer3(500);
   timer3_flag = 1;
 
-  setTimer4(1000);
-  timer4_flag = 1;
-
   while (1)
   {
     /* USER CODE END WHILE */
@@ -248,16 +245,6 @@ int main(void)
 		  }
 		  setTimer3(50);
 	  	  }
-
-	  if(timer4_flag == 1){
-	  	  		  //TODO EX3
-	  		  update7SEG(index_led);
-	  		  index_led++;
-	  		  if(index_led >= 4){
-	  			  index_led = 0;
-	  		  }
-	  		  setTimer3(50);
-	  	  	  }
   }
   /* USER CODE END 3 */
 }

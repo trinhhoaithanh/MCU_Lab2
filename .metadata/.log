@@ -101,3 +101,21 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-10-07 01:38:02.959
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-10-07 02:55:13.271
+!MESSAGE Indexed 'Lab2_Ex3' (20 sources, 97 headers) in 7.77 sec: 7,442 declarations; 34,781 references; 6 unresolved inclusions; 295 syntax errors; 1,095 unresolved names (2.5%)
+!SESSION 2023-10-07 20:24:29.441 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-10-07 20:28:47.121
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-10-07 20:28:47.229
+!MESSAGE Log4j initialized with config file C:\Users\Hoai Thanh\Documents\VXK-VDK\MCU_Lab2\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-10-07 20:28:58.719
+!MESSAGE Started RMI Server, listening on port 41337
