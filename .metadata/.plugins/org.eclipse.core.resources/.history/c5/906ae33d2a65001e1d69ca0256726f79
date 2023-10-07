@@ -274,7 +274,6 @@ int main(void)
 	  }
 
 	  if(timer5_flag == 1){
-//		  TODO EX7
 		  second++;
 		  if(second>=60){
 			  second = 0;

@@ -784,6 +784,7 @@ int main(void)
  8000610:	681b      	ldr	r3, [r3, #0]
  8000612:	2b01      	cmp	r3, #1
  8000614:	f47f af34 	bne.w	8000480 <main+0x5c>
+//		  TODO EX7
 		  second++;
  8000618:	4b1c      	ldr	r3, [pc, #112]	; (800068c <main+0x268>)
  800061a:	681b      	ldr	r3, [r3, #0]
