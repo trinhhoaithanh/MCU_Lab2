@@ -320,7 +320,8 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim)
 {
 
-	timerRun();
+	timerRun1();
+	timerRun2();
 }
 /* USER CODE END 4 */
 
