@@ -255,8 +255,6 @@ int main(void)
 
   setTimer6(100);
 
-  setTimer7(100);
-
   while (1)
   {
     /* USER CODE END WHILE */

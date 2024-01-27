@@ -255,8 +255,6 @@ int main(void)
 
   setTimer6(100);
 
-  setTimer7(100);
-
   while (1)
   {
     /* USER CODE END WHILE */
@@ -264,7 +262,9 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  if(timer1_flag == 1){
-//		  TODO EX1
+//		  //TODO EX1
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+
 		  switch(status){
 			  case 1:
 				  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
@@ -307,7 +307,7 @@ int main(void)
 	  }
 
 	  if(timer2_flag == 1){
-	  	  //TODO EX2
+	  		  //TODO EX2
 		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 		  setTimer2(100);
 	  }
@@ -342,24 +342,15 @@ int main(void)
 
 	  if(timer6_flag == 1){
 		updateLedMatrix(state, index_led_matrix);
-		index_led_matrix = (index_led_matrix+1);
-		if (index_led_matrix == MAX_LED_MATRIX){
-			index_led_matrix = 0;
-		}
-		setTimer6(10);
+		  index_led_matrix = (index_led_matrix+1);
+		  if (index_led_matrix == MAX_LED_MATRIX){
+			  index_led_matrix = 0;
+			  state = state + 1;
+			  if (state == MAX_SHIFT)
+				  state = 0;
+		  }
+		  setTimer6(10);
 	  }
-
-	  if(timer3_flag == 1){
-			state = state + 1;
-			if (state == MAX_SHIFT)
-			  state = 0;
-		setTimer3(10);
-	  }
-
-	  if(timer7_flag == 1){
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-	  setTimer7(100);
-	  	  }
   }
   /* USER CODE END 3 */
 }
